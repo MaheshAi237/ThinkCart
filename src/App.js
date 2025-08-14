@@ -3,10 +3,10 @@ import './App.css';
 const deals = [
   {
     id: 1,
-    title: "Noise-cancelling Headphones",
+    title: "LED Wall Mounted Lights, 5500mAh Rechargeable Wall Sconces Lamp",
     deal_url: "https://amzn.to/4lkVOrb",
     image_url: "https://m.media-amazon.com/images/I/71hcXN4JaqL.jpg",
-    price: 129.99
+    price: 29.99
   },
   {
     id: 2,
