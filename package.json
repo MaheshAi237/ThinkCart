@@ -12,6 +12,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "http://thinkcart.ai/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -41,8 +42,7 @@
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
-  },
-  "homepage": "https://maheshai237.github.io/ThinkCart/"
+  }
 
   
 }
