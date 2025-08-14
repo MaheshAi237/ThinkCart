@@ -4,8 +4,8 @@ const deals = [
   {
     id: 1,
     title: "Noise-cancelling Headphones",
-    deal_url: "https://www.amazon.com/dp/B08XXXXXX/?tag=yourtag-20",
-    image_url: "https://images-na.ssl-images-amazon.com/images/I/xxxx.jpg",
+    deal_url: "https://amzn.to/4lkVOrb",
+    image_url: "https://m.media-amazon.com/images/I/71hcXN4JaqL.jpg",
     price: 129.99
   },
   {
