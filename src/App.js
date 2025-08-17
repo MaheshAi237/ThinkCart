@@ -10,10 +10,10 @@ const deals = [
   },
   {
     id: 2,
-    title: "4K Smart TV",
+    title: "Kids School Backpack for Teens Girls Aesthetic White Backpack Lightweight",
     deal_url: "https://amzn.to/4oGyQ0u",
     image_url: "https://m.media-amazon.com/images/I/81H3WovO06L._AC_SX679_.jpg",
-    price: 299.99
+    price: 7.48
   }
 ];
 
