@@ -11,8 +11,8 @@ const deals = [
   {
     id: 2,
     title: "4K Smart TV",
-    deal_url: "https://www.amazon.com/dp/B07XXXXXX/?tag=yourtag-20",
-    image_url: "https://images-na.ssl-images-amazon.com/images/I/yyyy.jpg",
+    deal_url: "https://amzn.to/4oGyQ0u",
+    image_url: "https://m.media-amazon.com/images/I/81H3WovO06L._AC_SX679_.jpg",
     price: 299.99
   }
 ];
