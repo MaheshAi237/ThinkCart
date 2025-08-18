@@ -62,8 +62,8 @@ function DealCard({ deal }) {
           textDecoration: 'none',
           transition: 'background 0.2s ease'
         }}
-        onMouseOver={e => (e.target.style.backgroundColor = '#cc7a00')}
-        onMouseOut={e => (e.target.style.backgroundColor = '#FF9900')}
+        onMouseOver={e => (e.target.style.backgroundColor = '#004d00')} // darker green on hover
+        onMouseOut={e => (e.target.style.backgroundColor = '#006400')}
       >
         View Deal
       </a>
