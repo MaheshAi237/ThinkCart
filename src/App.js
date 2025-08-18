@@ -55,7 +55,7 @@ function DealCard({ deal }) {
         style={{
           textAlign: 'center',
           padding: '10px 15px',
-          backgroundColor: '#FF9900', // Amazon orange
+          backgroundColor: '#006400', // dark green
           color: '#fff',
           borderRadius: '5px',
           fontWeight: 'bold',
