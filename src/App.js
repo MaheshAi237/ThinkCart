@@ -3,17 +3,24 @@ import './App.css';
 const deals = [
   {
     id: 1,
-    title: "LED Wall Mounted Lights, 5500mAh Rechargeable Wall Sconces Lamp",
-    deal_url: "https://amzn.to/4lkVOrb",
-    image_url: "https://m.media-amazon.com/images/I/71hcXN4JaqL.jpg",
-    price: 29.99
+    title: "Ticonderoga Wood-Cased Pencils, Pre-Sharpened, 2 HB Soft, Yellow, 12 Count",
+    deal_url: "https://amzn.to/3Jq7BHv",
+    image_url: "https://m.media-amazon.com/images/I/81GqVVIzKKL._AC_SX679_.jpg",
+    price: 2.79
   },
   {
     id: 2,
-    title: "Kids School Backpack for Teens Girls Aesthetic White Backpack Lightweight",
-    deal_url: "https://amzn.to/4oGyQ0u",
-    image_url: "https://m.media-amazon.com/images/I/81H3WovO06L._AC_SX679_.jpg",
-    price: 7.48
+    title: "AVERY Hi-Liter Desk-Style Highlighters, Smear Safe Ink, Chisel Tip, 12 Yellow Highlighters",
+    deal_url: "https://amzn.to/3UAALGl",
+    image_url: "https://m.media-amazon.com/images/I/71xMkaBKMBL._AC_SX679_.jpg",
+    price: 10.99
+  },
+  {
+    id: 3,
+    title: "Pencil Pouch for 3 Ring Binder - Small Zipper Pen Case, Black Pencil Pouches for Boys Kids, School Supplies, 3 Hole Nylon Pencil Bag Accessories Clear Window Aesthetic Organizer",
+    deal_url: "https://amzn.to/4oDKCJ1",
+    image_url: "https://m.media-amazon.com/images/I/815pw+9hg1L._AC_SX679_.jpg",
+    price: 5.99
   }
 ];
 
