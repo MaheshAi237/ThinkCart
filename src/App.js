@@ -26,19 +26,18 @@ const deals = [
 
 function DealCard({ deal }) {
   return (
-    <a
-      href={deal.deal_url}
-      target="_blank"
-      rel="nofollow sponsored noopener noreferrer"
+    <div
       style={{
-        display: 'block',
         margin: '20px',
         padding: '15px',
         border: '1px solid #ccc',
         borderRadius: '10px',
         width: '250px',
-        textDecoration: 'none',
-        color: 'inherit'
+        backgroundColor: '#fff',
+        boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
       }}
     >
       <img
@@ -47,8 +46,28 @@ function DealCard({ deal }) {
         style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '8px', marginBottom: '10px' }}
       />
       <h3 style={{ fontSize: '16px', marginBottom: '5px' }}>{deal.title}</h3>
-      {deal.price && <p style={{ fontSize: '14px', color: '#333' }}>${deal.price}</p>}
-    </a>
+      {deal.price && <p style={{ fontSize: '14px', color: '#333', marginBottom: '15px' }}>${deal.price}</p>}
+
+      <a
+        href={deal.deal_url}
+        target="_blank"
+        rel="nofollow sponsored noopener noreferrer"
+        style={{
+          textAlign: 'center',
+          padding: '10px 15px',
+          backgroundColor: '#FF9900', // Amazon orange
+          color: '#fff',
+          borderRadius: '5px',
+          fontWeight: 'bold',
+          textDecoration: 'none',
+          transition: 'background 0.2s ease'
+        }}
+        onMouseOver={e => (e.target.style.backgroundColor = '#cc7a00')}
+        onMouseOut={e => (e.target.style.backgroundColor = '#FF9900')}
+      >
+        View Deal
+      </a>
+    </div>
   );
 }
 
