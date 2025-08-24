@@ -103,10 +103,7 @@ function App() {
   return (
     <div style={{ padding: '20px', fontFamily: 'sans-serif', backgroundColor: '#f9f9f9', minHeight: '100vh' }}>
       <header style={{ textAlign: 'center', marginBottom: '30px' }}>
-        <h1 style={{ fontSize: '32px', marginBottom: '10px' }}>Thinkcart</h1>
-        <p style={{ fontSize: '14px', color: '#555' }}>
-          Fresh Amazon deals. As an Amazon Associate, we earn from qualifying purchases.
-        </p>
+        <h1 style={{ fontSize: '32px', marginBottom: '10px' }}>Thinkcart</h1>      
       </header>
 
       <main style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
