@@ -3,24 +3,143 @@ import './App.css';
 const deals = [
   {
     id: 1,
-    title: "Ticonderoga Wood-Cased Pencils, Pre-Sharpened, 2 HB Soft, Yellow, 12 Count",
-    deal_url: "https://amzn.to/3Jq7BHv",
-    image_url: "https://m.media-amazon.com/images/I/81GqVVIzKKL._AC_SX679_.jpg",
-    price: 2.79
+    title: "LOVEVOOK Laptop Bag for Women, 15.6 inch Laptop Tote Bag",
+    deal_url: "https://amzn.to/4fRWuDw",
+    image_url: "https://m.media-amazon.com/images/I/71dcPb8iZGL._AC_SX679_.jpg",
+    price: 35.99
   },
   {
     id: 2,
-    title: "AVERY Hi-Liter Desk-Style Highlighters, Smear Safe Ink, Chisel Tip, 12 Yellow Highlighters",
-    deal_url: "https://amzn.to/3UAALGl",
-    image_url: "https://m.media-amazon.com/images/I/71xMkaBKMBL._AC_SX679_.jpg",
-    price: 10.99
+    title: "Lined Spiral Journal Notebook for Women & Men Notebook",
+    deal_url: "https://amzn.to/4oVWIxE",
+    image_url: "https://m.media-amazon.com/images/I/61nJOjSLjbL._AC_SX679_.jpg",
+    price: 5.94
   },
   {
     id: 3,
-    title: "Pencil Pouch for 3 Ring Binder - Small Zipper Pen Case, Black Pencil Pouches for Boys Kids, School Supplies, 3 Hole Nylon Pencil Bag Accessories Clear Window Aesthetic Organizer",
-    deal_url: "https://amzn.to/4oDKCJ1",
-    image_url: "https://m.media-amazon.com/images/I/815pw+9hg1L._AC_SX679_.jpg",
-    price: 5.99
+    title: "Wireless Earbuds, 2025 Bluetooth 5.4 Headphones 3D Bass Hi-Fi Stereo Ear Buds",
+    deal_url: "https://amzn.to/4fUpj24",
+    image_url: "https://m.media-amazon.com/images/I/71Y-9WdKq6L._AC_SX679_.jpg",
+    price: 19.99
+  },
+  {
+    id: 4,
+    title: "MIULEE 2 Panels Navy Blue Sheer Window Curtains Elegant Window Voile",
+    deal_url: "https://amzn.to/45SXPFy",
+    image_url: "https://m.media-amazon.com/images/I/71Q+D8YIAXL._AC_SX679_.jpg",
+    price: 6.49
+  },
+  {
+    id: 5,
+    title: "Thermometer for Adults and Kids, Fast Accurate Baby Thermometer, Fever Alarm",
+    deal_url: "https://amzn.to/4lIxwYu",
+    image_url: "https://m.media-amazon.com/images/I/519GodyK7HL._SX466_.jpg",
+    price: 13.59
+  },
+  {
+    id: 6,
+    title: "Handheld Portable Turbo Fan with Ice Cooler, Speed (1-199) 5500mAh Rechargeable Personal Fan",
+    deal_url: "https://amzn.to/477hRhK",
+    image_url: "https://m.media-amazon.com/images/I/717uAxOKruL._AC_SX679_.jpg",
+    price: 15.38
+  },
+  {
+    id: 7,
+    title: "School Backpack,Unisex Classic Bookbag Teens Schoolbag with USB Port",
+    deal_url: "https://amzn.to/4771v8T",
+    image_url: "https://m.media-amazon.com/images/I/61AgDdrttBL._AC_SX679_.jpg",
+    price: 13.99
+  },
+  {
+    id: 8,
+    title: "Monocular-Telescope 80x100 High Powered Monoculars High Definition for Adults High Powered",
+    deal_url: "https://amzn.to/4oQCi8Y",
+    image_url: "https://m.media-amazon.com/images/I/813W-QYw3rL._AC_SX679_.jpg",
+    price: 18.98
+  },
+  {
+    id: 9,
+    title: "a.Jesdani Women's Button Down Crew Neck Long Sleeve Soft Knit Cardigan Sweaters",
+    deal_url: "https://amzn.to/3JPm140",
+    image_url: "https://m.media-amazon.com/images/I/710JOTwLAYS._AC_SX569_.jpg",
+    price: 9.49
+  },
+  {
+    id: 10,
+    title: "Metal Bird Feeder for Outdoors Hanging,2-in-1 Wild Bird Seed Hummingbird Feeder",
+    deal_url: "https://amzn.to/4mqkoIF",
+    image_url: "https://m.media-amazon.com/images/I/71+OtnOnHAL._AC_SX679_.jpg",
+    price: 14.99
+  },
+  {
+    id: 11,
+    title: "Fuzzy Slippers for Women with Memory Foam Warm Winter Suede House Slippers",
+    deal_url: "https://amzn.to/4mxLU7a",
+    image_url: "https://m.media-amazon.com/images/I/71pPkzC3iVL._AC_SY625_.jpg",
+    price: 9.99
+  },
+  {
+    id: 12,
+    title: "Stainless Steel Slim Band Suitable for Apple Watch",
+    deal_url: "https://amzn.to/4fQ2IDL",
+    image_url: "https://m.media-amazon.com/images/I/71a7t2XK2AL._AC_SY625_.jpg",
+    price: 10.99
+  },
+  {
+    id: 13,
+    title: "Wireless Mag-Safe Charger for iPhone: 3-in-1 Charging Station for Multiple Devices Apple",
+    deal_url: "https://amzn.to/4mWQn32",
+    image_url: "https://m.media-amazon.com/images/I/61ytTCVCUTL._AC_SX679_.jpg",
+    price: 19.07
+  },
+  {
+    id: 14,
+    title: "DJI Mic Mini (2 TX + 1 RX + Charging Case), Wireless Lavalier Microphone for iPhone",
+    deal_url: "https://amzn.to/3HOPxq3",
+    image_url: "https://m.media-amazon.com/images/I/6132m-fHnjL._AC_SX679_.jpg",
+    price: 136
+  },
+  {
+    id: 15,
+    title: "AMD Ryzen™ 9 9950X 16-Core, 32-Thread Unlocked Desktop Processor",
+    deal_url: "https://amzn.to/47726HF",
+    image_url: "https://m.media-amazon.com/images/I/61dukbEGziL._AC_SX679_.jpg",
+    price: 531
+  },
+  {
+    id: 16,
+    title: "Ice Cream Maker Attachment for KitchenAid Stand Mixer, Ice Cream Bowl",
+    deal_url: "https://amzn.to/4mYchD5",
+    image_url: "https://m.media-amazon.com/images/I/71mqK-TJzXL._AC_SX679_.jpg",
+    price: 39.98
+  },
+  {
+    id: 17,
+    title: "KEOUKE Rotary Cheese Grater Hand Crank Transparent - Shredder Slicer Grinder 3 Stainless",
+    deal_url: "https://amzn.to/45vdlII",
+    image_url: "https://m.media-amazon.com/images/I/61fXO0-4Z9L._AC_SX679_.jpg",
+    price: 17.99
+  },
+  {
+    id: 18,
+    title: "Schleich Bayala - 3 PC Fairy Toys Set - Eyela and Unicorn Figure Playset",
+    deal_url: "https://amzn.to/41o5MB3",
+    image_url: "https://m.media-amazon.com/images/I/81IyoH0bgpL._AC_SX679_.jpg",
+    price: 14.6
+  },
+  {
+    id: 19,
+    title: "Tommy Hilfiger Boys' Short Sleeve Premium Pique Polo Shirt, Button Closure, Soft & Comfortable",
+    deal_url: "https://amzn.to/3VfBxsx",
+    image_url: "https://m.media-amazon.com/images/I/71ylWeHaS8L._AC_SX679_.jpg",
+    price: 13
+  },
+  {
+    id: 20,
+    title: "Furinno Simple Design End/SideTable, 1-Pack, French Oak Grey/Black",
+    deal_url: "https://amzn.to/4mT106N",
+    image_url: "https://m.media-amazon.com/images/I/61fteDcb7ML._AC_SX679_.jpg",
+    price: 20.25
   }
 ];
 
