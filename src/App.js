@@ -1,7 +1,7 @@
 import './App.css';
 
 const deals = [
-  { id: 1, title: "LOVEVOOK Laptop Bag for Women, 15.6 inch Laptop Tote Bag", deal_url: "https://amzn.to/4fRWuDw", image_url: "https://m.media-amazon.com/images/I/71dcPb8iZGL._AC_SX679_.jpg", price: 35.99, original_price: 42.99 },
+  { id: 1, title: "LPot Cover Spill Stopper Lid - Thicken Silicone Boil Over Spill Safeguard", deal_url: "https://amzn.to/465nE6q", image_url: "https://m.media-amazon.com/images/I/51YhqWRiECL._AC_SX679_.jpg", price: 9.99, original_price: 12.99 },
   { id: 2, title: "Lined Spiral Journal Notebook for Women & Men Notebook", deal_url: "https://amzn.to/47bPkHP", image_url: "https://m.media-amazon.com/images/I/61nJOjSLjbL._AC_SX679_.jpg", price: 5.94, original_price: 6.99 },
   { id: 3, title: "Wireless Earbuds, 2025 Bluetooth 5.4 Headphones 3D Bass Hi-Fi Stereo Ear Buds", deal_url: "https://amzn.to/4fUpj24", image_url: "https://m.media-amazon.com/images/I/71Y-9WdKq6L._AC_SX679_.jpg", price: 19.99, original_price: 159.99 },
   { id: 4, title: "MIULEE 2 Panels Navy Blue Sheer Window Curtains Elegant Window Voile", deal_url: "https://amzn.to/45SXPFy", image_url: "https://m.media-amazon.com/images/I/71Q+D8YIAXL._AC_SX679_.jpg", price: 6.49, original_price: 12.99 },
