@@ -2,8 +2,8 @@ import './App.css';
 
 const deals = [
   { id: 1, title: "LPot Cover Spill Stopper Lid - Thicken Silicone Boil Over Spill Safeguard", deal_url: "https://amzn.to/465nE6q", image_url: "https://m.media-amazon.com/images/I/51YhqWRiECL._AC_SX679_.jpg", price: 9.99, original_price: 12.99 },
-  { id: 2, title: "OhO Smart Glasses,Safety Glasses with Bluetooth Speaker", deal_url: "https://amzn.to/45Cdk5L", image_url: "https://m.media-amazon.com/images/I/51K46TL+nnL._AC_SX679_.jpg", price: 7.99, original_price: 68.99 },
-  { id: 3, title: 'Kids Protective Gear Set, Knee and Elbow Pads with Wrist Guards', deal_url: 'https://amzn.to/4g8TWAX', image_url: 'https://m.media-amazon.com/images/I/81E+9YiFrUL._AC_SX679_.jpg', price: 9.99, original_price: 14.99 },
+  { id: 2, title: "Actvty Halloween Chocolate Silicone Mold, 4 Packs Candy Gummy Molds of 18 Cavity with Skull Pumpkin Ghost", deal_url: "https://amzn.to/3JTHpVQ", image_url: "https://m.media-amazon.com/images/I/71XOP6RqEpL._AC_SX679_.jpg", price: 9.99, original_price: 12.99 },
+  { id: 3, title: "Kids Protective Gear Set, Knee and Elbow Pads with Wrist Guards", deal_url: "https://amzn.to/4g8TWAX", image_url: "https://m.media-amazon.com/images/I/81E+9YiFrUL._AC_SX679_.jpg", price: 9.99, original_price: 14.99 },
   { id: 4, title: "Kids Camera, HD Digital Instant Print Camera for Kids,", deal_url: "https://amzn.to/47LLpli", image_url: "https://m.media-amazon.com/images/I/813IKs4VmNL._AC_SX679_.jpg", price: 29.99, original_price: 159.99 },
   { id: 5, title: "2K Light Bulb Security Cameras Wireless Outdoor", deal_url: "https://amzn.to/3HTK5SU", image_url: "https://m.media-amazon.com/images/I/71pHPhUZ1ML._AC_SX679_.jpg", price: 17.99, original_price: 66.99 },
   { id: 6, title: "Binoculars for Adults, 12x42 Waterproof and Durable Binoculars with Multi-Coated Optics and Protective Rubber Armor", deal_url: "https://amzn.to/4mWxLA6", image_url: "https://m.media-amazon.com/images/I/81WpncCE+EL._AC_SX679_.jpg", price: 39.99, original_price: 159.99 },
