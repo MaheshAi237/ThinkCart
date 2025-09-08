@@ -1,7 +1,7 @@
 import './App.css';
 
 const deals = [
-  { id: 1, title: "Oraolo Portable Bluetooth Speaker with 24W Loud Stereo Sound, Colorful RGB Lights, TWS Pairing, Bluetooth 5.4", deal_url: "https://amzn.to/46bbE2f", image_url: "https://m.media-amazon.com/images/I/814RTNDdAVL._AC_SX679_.jpg", price: 29.99, original_price: 149.99 },
+  { id: 1, title: "TIME X Magic Grooved Writing Practice Books, Reusable Handwriting Practice Books, Groove Workbooks", deal_url: "https://amzn.to/41I3AVl", image_url: "https://m.media-amazon.com/images/I/91WJB9h6LiL._AC_SX679_.jpg", price: 37.99, original_price: 37.99 },
   { id: 2, title: "Kenneth Cole Womens Martha Heeled Sandal", deal_url: "https://amzn.to/4p5791K", image_url: "https://m.media-amazon.com/images/I/61zsQ3jtIWL._AC_SY695_.jpg", price: 23.1, original_price: 129 },
   { id: 3, title: "Upgrade Digital Camera, 56MP FHD 1080P Camera for Kids with 16x Zoom Anti Shake, Kid Camera with 32GB TF Card", deal_url: "https://amzn.to/4peGAYb", image_url: "https://m.media-amazon.com/images/I/91negF0A7XL._AC_SX679_.jpg", price: 28.99, original_price: 178.99 },
   { id: 4, title: "Construction Site: Garbage Crew to the Rescue! (Goodnight, Goodnight, Construc) Kindle Edition", deal_url: "https://amzn.to/4m1yoYn", image_url: "https://m.media-amazon.com/images/I/91EKz3QrDcL._SY342_.jpg", price: 1.99, original_price: 11.99 },
