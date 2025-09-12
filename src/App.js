@@ -1,7 +1,10 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route, Link, useParams, Navigate } from 'react-router-dom';
 import './App.css';
 
+// --- Data (truncated for brevity, keep your deals array here) ---
 const deals = [
-
+  
 { id: 1, title: "BEDLORE Waterproof Mattress Protector, Queen Size Mattress Pad Noiseless with Deep Pocket 6-18 Depth, Soft Breathable Dirt-Proof Bed Mattress Cover Washable for Home, Bedroom, Hotel (Gray)", deal_url: "https://tinyurl.com/28f5znsm", image_url: "https://m.media-amazon.com/images/I/71+omVwPiXL._AC_SX679_.jpg", price: 23.99, original_price: 29.99 },
 { id: 2, title: "Bedsure White Duvet Cover Queen Size - 3 Pieces Prewashed Extra Soft Bedding Set, Includes 1 Duvet Cover 90x90 Inches with Zipper Closure & 2 Pillow Shams, Comforter Not Included", deal_url: "https://tinyurl.com/2afz4lb8", image_url: "https://m.media-amazon.com/images/I/81QF0RHosBL._AC_SX679_.jpg", price: 19.99, original_price: 39.98 },
 { id: 3, title: "Bissell CleanView Compact Upright Vacuum, Fits in Dorm Rooms & Apartments, Lightweight with Powerful Suction and Removable Extension Wand, 3508", deal_url: "https://tinyurl.com/252rjv4v", image_url: "https://m.media-amazon.com/images/I/61p-lLb7sTL._AC_SX679_.jpg", price: 53.99, original_price: 59.99 },
@@ -67,105 +70,275 @@ const deals = [
 { id: 63, title: "Bedsure Bright White Duvet Cover Twin/Twin XL Size - 2 Pieces Prewashed Cotton-Like Extra Soft Bedding Set, Includes 1 Twin Duvet Cover 68x90 Inches with Zipper Closure & 1 Pillow Sham, No Comforter", deal_url: "https://tinyurl.com/2b8fvrm5", image_url: "https://m.media-amazon.com/images/I/81pq3AhZGPL._AC_SX679_.jpg", price: 27.99, original_price: 39.99 },
 { id: 64, title: "Utopia Bedding Full Sheet Set – 4 Piece Bed Sheets for Full Size Bed, Soft and Breathable Microfiber, Includes 1 Fitted Sheet, 1 Flat Sheet and 2 Pillowcases (Coral)", deal_url: "https://tinyurl.com/29y95ywu", image_url: "https://m.media-amazon.com/images/I/71Tu+c14nsL._AC_SX679_.jpg", price: 18.99, original_price: 27.13 },
 { id: 65, title: "Safety 1st Grow and Go All-in-One Slim Convertible Car Seat, Rear Facing, 5-40 lbs, Forward Facing (30–65 lbs), High Back Booster Seat 40-100 pounds, Black Phantom", deal_url: "https://tinyurl.com/2bl9cws6", image_url: "https://m.media-amazon.com/images/I/71W2eNZFpbL._SX425_.jpg", price: 127.99, original_price: 170.65 },
-{ id: 66, title: "kelamayi Upgrade Broom and Dustpan Set, Self-Cleaning with Dustpan Teeth, Indoor&Outdoor Sweeping, Ideal for Dog Cat Pets Home Use, Stand Up Broom and Dustpan (Gray&Orange)", deal_url: "https://tinyurl.com/2xquwn7y", image_url: "https://m.media-amazon.com/images/I/61zELlfqTPL._AC_SX569_.jpg", price: 18.83, original_price: 26.15 },
+{ id: 66, title: "kelamayi Upgrade Broom and Dustpan Set, Self-Cleaning with Dustpan Teeth, Indoor&Outdoor Sweeping, Ideal for Dog Cat Pets Home Use, Stand Up Broom and Dustpan (Gray&Orange)", deal_url: "https://tinyurl.com/2xquwn7y", image_url: "https://m.media-amazon.com/images/I/61zELlfqTPL._AC_SX569_.jpg", price: 18.83, original_price: 26.15 }
 
+];
 
-]
-;
+// --- Helpers ------------------------------------------------------------
+const formatMoney = (n) => `$${Number(n).toFixed(2)}`;
+const discountPct = (deal) => {
+  if (!deal.original_price || !deal.price) return null;
+  return Math.round(100 - (deal.price / deal.original_price) * 100);
+};
+const slugify = (str) =>
+  str
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .slice(0, 120);
 
+// Precompute slugs once for stable URLs
+const dealsWithSlugs = deals.map((d) => ({ ...d, slug: slugify(d.title) }));
+
+const getDealById = (id) => dealsWithSlugs.find((d) => String(d.id) === String(id));
+
+// --- UI Components ------------------------------------------------------
 function DealCard({ deal }) {
+  const pct = discountPct(deal);
   return (
     <div
       style={{
         margin: '20px',
         padding: '15px',
-        border: '1px solid #ccc',
-        borderRadius: '10px',
-        width: '250px',
+        border: '1px solid #eee',
+        borderRadius: '12px',
+        width: '280px',
         backgroundColor: '#fff',
-        boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between'
       }}
     >
-      <img
-        src={deal.image_url}
-        alt={deal.title}
-        style={{
-          width: '100%',
-          height: '200px',
-          objectFit: 'cover',
-          borderRadius: '8px',
-          marginBottom: '10px'
-        }}
-      />
-      <h3 style={{ fontSize: '16px', marginBottom: '5px' }}>{deal.title}</h3>
+      <Link to={`/deal/${deal.id}/${deal.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+        <img
+          src={deal.image_url}
+          alt={deal.title}
+          loading="lazy"
+          style={{
+            width: '100%',
+            height: '200px',
+            objectFit: 'cover',
+            borderRadius: '10px',
+            marginBottom: '10px'
+          }}
+        />
+        <h3 style={{ fontSize: '16px', marginBottom: '6px', lineHeight: 1.25 }}>{deal.title}</h3>
+      </Link>
 
-      {deal.original_price && deal.price ? (
-        <p style={{ fontSize: '14px', color: '#333', marginBottom: '15px' }}>
-          <span
-            style={{
-              textDecoration: 'line-through',
-              color: '#888',
-              marginRight: '8px'
-            }}
-          >
-            ${deal.original_price.toFixed(2)}
-          </span>
-          <span style={{ fontWeight: 'bold', color: '#000' }}>
-            ${deal.price.toFixed(2)}
-          </span>
-        </p>
-      ) : (
-        deal.price && (
-          <p style={{ fontSize: '14px', color: '#333', marginBottom: '15px' }}>
-            ${deal.price.toFixed(2)}
-          </p>
-        )
-      )}
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 12 }}>
+        {deal.original_price && (
+          <span style={{ textDecoration: 'line-through', color: '#888' }}>{formatMoney(deal.original_price)}</span>
+        )}
+        {deal.price && (
+          <span style={{ fontWeight: 800 }}>{formatMoney(deal.price)}</span>
+        )}
+        {pct ? (
+          <span style={{ marginLeft: 'auto', fontSize: 12, color: '#0a7c2f', fontWeight: 700 }}>-{pct}%</span>
+        ) : null}
+      </div>
 
-      <a
-        href={deal.deal_url}
-        target="_blank"
-        rel="nofollow sponsored noopener noreferrer"
-        style={{
-          textAlign: 'center',
-          padding: '10px 15px',
-          backgroundColor: '#006400', // dark green
-          color: '#fff',
-          borderRadius: '5px',
-          fontWeight: 'bold',
-          textDecoration: 'none',
-          transition: 'background 0.2s ease'
-        }}
-        onMouseOver={e => (e.target.style.backgroundColor = '#004d00')}
-        onMouseOut={e => (e.target.style.backgroundColor = '#006400')}
-      >
-        View Deal
-      </a>
+      <div style={{ display: 'flex' }}>
+        <Link
+          to={`/deal/${deal.id}/${deal.slug}`}
+          style={{
+            flex: 1,
+            textAlign: 'center',
+            padding: '10px 14px',
+            background: '#0a7c2f',
+            color: '#fff',
+            borderRadius: '8px',
+            fontWeight: 700,
+            textDecoration: 'none'
+          }}
+        >
+          View
+        </Link>
+      </div>
     </div>
   );
 }
 
-function App() {
+function DealGrid() {
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif', backgroundColor: '#f9f9f9', minHeight: '100vh' }}>
-      <header style={{ textAlign: 'center', marginBottom: '30px' }}>
-        <h1 style={{ fontSize: '32px', marginBottom: '10px' }}>Thinkcart</h1>      
-      </header>
+    <main style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+      {dealsWithSlugs.map((d) => (
+        <DealCard key={d.id} deal={d} />
+      ))}
+    </main>
+  );
+}
 
-      <main style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-        {deals.map(d => <DealCard key={d.id} deal={d} />)}
-      </main>
+function DealDetail() {
+  const { id, slug } = useParams();
+  const deal = getDealById(id);
 
-      <footer style={{ textAlign: 'center', marginTop: '40px', fontSize: '12px', color: '#555' }}>
-        © {new Date().getFullYear()} Thinkcart.ai
-        <br />
-        We may earn commission from affiliate links. We appreciate your support!
-      </footer>
+  if (!deal) return <NotFound />;
+
+  const canonical = `/deal/${deal.id}/${deal.slug}`;
+  if (slug !== deal.slug) {
+    return <Navigate to={canonical} replace />;
+  }
+
+  const pct = discountPct(deal);
+
+  return (
+    <div style={{ padding: 20, maxWidth: 980, margin: '0 auto' }}>
+      <nav style={{ marginBottom: 16 }}>
+        <Link to="/" style={{ textDecoration: 'none', color: '#0a7c2f', fontWeight: 700 }}>← All Deals</Link>
+      </nav>
+
+      <article style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 24 }}>
+        <div>
+          <img
+            src={deal.image_url}
+            alt={deal.title}
+            loading="eager"
+            style={{ width: '100%', height: 420, objectFit: 'cover', borderRadius: 12, border: '1px solid #eee' }}
+          />
+        </div>
+        <div>
+          <h1 style={{ fontSize: 26, lineHeight: 1.2, marginBottom: 12 }}>{deal.title}</h1>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            {deal.original_price && (
+              <span style={{ textDecoration: 'line-through', color: '#888' }}>{formatMoney(deal.original_price)}</span>
+            )}
+            {deal.price && <span style={{ fontSize: 22, fontWeight: 900 }}>{formatMoney(deal.price)}</span>}
+            {pct ? <span style={{ color: '#0a7c2f', fontWeight: 800 }}>Save {pct}%</span> : null}
+          </div>
+
+          <p style={{ fontSize: 14, color: '#374151', marginBottom: 14 }}>
+            We may earn commission from affiliate links. Thanks for supporting Thinkcart.
+          </p>
+
+          <div style={{ display: 'flex', gap: 12, marginBottom: 20 }}>
+            <a
+              href={deal.deal_url}
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+              style={{
+                padding: '12px 16px',
+                background: '#0a7c2f',
+                color: '#fff',
+                borderRadius: 10,
+                fontWeight: 800,
+                textDecoration: 'none',
+                display: 'inline-block'
+              }}
+            >
+              Go to Deal
+            </a>
+            <ShareButtons deal={deal} />
+          </div>
+        </div>
+      </article>
+
+      <hr style={{ margin: '28px 0', border: 0, borderTop: '1px solid #e5e7eb' }} />
+
+      <section>
+        <h2 style={{ fontSize: 18, marginBottom: 12 }}>More deals you might like</h2>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+          {dealsWithSlugs
+            .filter((d) => d.id !== deal.id)
+            .slice(0, 6)
+            .map((d) => (
+              <div key={d.id} style={{ width: 220 }}>
+                <Link to={`/deal/${d.id}/${d.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <img src={d.image_url} alt={d.title} style={{ width: '100%', height: 120, objectFit: 'cover', borderRadius: 10, border: '1px solid #eee' }} />
+                  <div style={{ fontSize: 13, marginTop: 6, lineHeight: 1.3 }}>{d.title}</div>
+                </Link>
+              </div>
+            ))}
+        </div>
+      </section>
     </div>
   );
 }
 
-export default App;
+function ShareButtons({ deal }) {
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const text = encodeURIComponent(`${deal.title} — ${formatMoney(deal.price)} on Thinkcart`);
+  return (
+    <div style={{ display: 'flex', gap: 10 }}>
+      <a
+        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${text}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={btnGhost}
+      >
+        Share X
+      </a>
+      <a
+        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={btnGhost}
+      >
+        Share FB
+      </a>
+      <button onClick={() => navigator.clipboard.writeText(shareUrl)} style={btnGhost}>
+        Copy Link
+      </button>
+    </div>
+  );
+}
+
+const btnGhost = {
+  padding: '12px 14px',
+  background: '#f3f4f6',
+  color: '#111827',
+  borderRadius: 10,
+  fontWeight: 800,
+  border: '1px solid #e5e7eb',
+  cursor: 'pointer'
+};
+
+function Header() {
+  return (
+    <header style={{ textAlign: 'center', marginBottom: 30 }}>
+      <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+        <h1 style={{ fontSize: 32, marginBottom: 6 }}>Thinkcart</h1>
+      </Link>
+      <p style={{ fontSize: 13, color: '#6b7280' }}>Fresh deals. One click away.</p>
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer style={{ textAlign: 'center', marginTop: 40, fontSize: 12, color: '#555' }}>
+      © {new Date().getFullYear()} Thinkcart.ai
+      <br />
+      We may earn commission from affiliate links. We appreciate your support!
+    </footer>
+  );
+}
+
+function NotFound() {
+  return (
+    <div style={{ padding: 40, textAlign: 'center' }}>
+      <h1 style={{ fontSize: 28, marginBottom: 8 }}>404</h1>
+      <p>Sorry, we couldn't find that deal.</p>
+      <Link to="/" style={{ color: '#0a7c2f', fontWeight: 700 }}>Return to all deals</Link>
+    </div>
+  );
+}
+
+// --- App Shell with Router ---------------------------------------------
+export default function App() {
+  return (
+    <BrowserRouter>
+      <div style={{ padding: 20, fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"', backgroundColor: '#f9fafb', minHeight: '100vh' }}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<DealGrid />} />
+          <Route path="/deal/:id/:slug" element={<DealDetail />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
+}
