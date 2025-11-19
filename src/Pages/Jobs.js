@@ -1,4 +1,3 @@
-// src/pages/Jobs.js
 import React from "react";
 
 const Jobs = () => {
@@ -7,56 +6,30 @@ const Jobs = () => {
       <div className="hero-left">
         <div className="badge">
           <span className="badge-dot" />
-          Jobs portal – coming soon
+          Coming soon
         </div>
 
         <h1 className="hero-title">
-          A job board focused on
-          <span> AI-first and modern tech roles.</span>
+          A modern job platform for 
+          <span> AI & tech roles.</span>
         </h1>
 
         <p className="hero-text">
-          Thinkcart Jobs will highlight high-signal roles at companies that are
-          actually building with AI – not generic copy/paste listings.
+          We're building a curated job portal focused on meaningful AI & tech 
+          roles — not generic listings. Stay updated through our Reddit community.
         </p>
-
-        <div className="hero-tags">
-          <span className="tag">AI & data roles</span>
-          <span className="tag">Product & founder-track</span>
-          <span className="tag">Remote-friendly filters</span>
-          <span className="tag">Tech stack insights</span>
-        </div>
 
         <div className="hero-actions">
           <a
-            href="https://jobs.thinkcart.ai"
+            href="https://www.reddit.com/r/ThinkcartAI"
             target="_blank"
             rel="noreferrer"
             className="btn-primary"
           >
-            Go to jobs.thinkcart.ai
-          </a>
-          <a
-            href="mailto:support@thinkcart.ai?subject=Hiring%20via%20Thinkcart%20Jobs"
-            className="btn-ghost"
-          >
-            Post roles early →
+            Join the Reddit community
           </a>
         </div>
       </div>
-
-      <aside className="hero-right">
-        <h2 className="panel-title">For hiring teams</h2>
-        <ul className="timeline">
-          <li className="timeline-item">
-            <p className="timeline-text">
-              If you want to list roles early on Thinkcart Jobs, reach out at{" "}
-              <strong>support@thinkcart.ai</strong>.
-            </p>
-            <span className="timeline-tag">Early employer access</span>
-          </li>
-        </ul>
-      </aside>
     </section>
   );
 };

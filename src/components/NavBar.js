@@ -36,6 +36,13 @@ const NavBar = () => {
           >
             Jobs
           </NavLink>
+          <NavLink
+             to="/contact"
+             className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+            >
+             Contact
+          </NavLink>
+
           <a
             href="https://www.reddit.com/r/ThinkcartAI"
             target="_blank"
