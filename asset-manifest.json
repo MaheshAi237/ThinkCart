@@ -1,15 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.f855e6bc.css",
-    "main.js": "/static/js/main.586f4b68.js",
-    "static/js/453.670e15c7.chunk.js": "/static/js/453.670e15c7.chunk.js",
+    "main.css": "/static/css/main.9034d196.css",
+    "main.js": "/static/js/main.93282f11.js",
+    "static/media/thinkcart-logo.png": "/static/media/thinkcart-logo.6c2807fccfa5748f716d.png",
     "index.html": "/index.html",
-    "main.f855e6bc.css.map": "/static/css/main.f855e6bc.css.map",
-    "main.586f4b68.js.map": "/static/js/main.586f4b68.js.map",
-    "453.670e15c7.chunk.js.map": "/static/js/453.670e15c7.chunk.js.map"
+    "main.9034d196.css.map": "/static/css/main.9034d196.css.map",
+    "main.93282f11.js.map": "/static/js/main.93282f11.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.586f4b68.js"
+    "static/css/main.9034d196.css",
+    "static/js/main.93282f11.js"
   ]
 }
