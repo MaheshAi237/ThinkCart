@@ -2,11 +2,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Jobs from "./pages/Jobs";
-import Deals from "./pages/Deals";
-import Contact from "./pages/Contact";
+import Home from "./Pages/Home";
+import Products from "./Pages/Products";
+import Jobs from "./Pages/Jobs";
+import Deals from "./Pages/Deals";
+import Contact from "./Pages/Contact";
 
 
 function App() {

@@ -1,4 +1,4 @@
-// src/pages/Contact.js
+// src/Pages/Contact.js
 import React from "react";
 
 const Contact = () => {
