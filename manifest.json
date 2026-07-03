@@ -1,10 +1,10 @@
 {
   "short_name": "ThinkCart",
-  "name": "Thinkcart.ai",
+  "name": "ThinkCart.ai",
   "icons": [
     {
       "src": "thinkcart_favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "16x16 32x32",
       "type": "image/x-icon"
     },
     {
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#020617",
-  "background_color": "#020617"
+  "theme_color": "#112240",
+  "background_color": "#112240"
 }
