@@ -39,7 +39,7 @@ const WHY_US = [
   {
     Icon: IconMapPin,
     heading: "Built for India first",
-    body: "We design for India's infrastructure — UPI, WhatsApp, Tier 2 cities, limited bandwidth. Not US-first products retrofitted for India.",
+    body: "We design for India's infrastructure — UPI, WhatsApp, Tier 2 cities, limited bandwidth.",
   },
   {
     Icon: IconShieldCheck,
