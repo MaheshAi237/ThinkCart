@@ -1,58 +1,55 @@
-// src/components/NavBar.js
-import React from "react";
-import { NavLink } from "react-router-dom";
-import logo from "../assets/thinkcart-logo.png";
+import React, { useState } from "react";
+import Logo from "./Logo";
 
 const NavBar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="navbar">
       <div className="nav-inner">
-        <div className="nav-left">
-          <img src={logo} alt="Thinkcart.ai logo" className="nav-logo" />
-          <div className="nav-brand">
-            <div className="nav-title">Thinkcart.ai</div>
-            <div className="nav-sub">AI tools • Jobs • Data apps</div>
-          </div>
-        </div>
-        <nav className="nav-links">
-          <NavLink end to="/" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
-            Home
-          </NavLink>
-          <NavLink
-            to="/deals"
-            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
-          >
-            Deals
-          </NavLink>
-          <NavLink
-            to="/products"
-            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
-          >
-            Products
-          </NavLink>
-          <NavLink
-            to="/jobs"
-            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
-          >
-            Jobs
-          </NavLink>
-          <NavLink
-             to="/contact"
-             className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
-            >
-             Contact
-          </NavLink>
+        <a href="#top" className="logo-lockup">
+          <Logo variant="dark" size={32} />
+        </a>
 
-          <a
-            href="https://www.reddit.com/r/ThinkcartAI"
-            target="_blank"
-            rel="noreferrer"
-            className="nav-pill"
-          >
-            Reddit community →
+        <nav className="nav-links">
+          <a href="#products" className="nav-link">
+            Products
           </a>
+          <a href="#about" className="nav-link">
+            About
+          </a>
+          <a href="#contact" className="nav-link">
+            Contact
+          </a>
+          {/* "Join waitlist" CTA hidden until the signup form is wired to a
+              real backend — see src/components/EmailSignup.js */}
+          <button
+            type="button"
+            className="nav-hamburger"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </nav>
       </div>
+
+      {open && (
+        <div className="nav-mobile-menu">
+          <a href="#products" className="nav-link" onClick={() => setOpen(false)}>
+            Products
+          </a>
+          <a href="#about" className="nav-link" onClick={() => setOpen(false)}>
+            About
+          </a>
+          <a href="#contact" className="nav-link" onClick={() => setOpen(false)}>
+            Contact
+          </a>
+        </div>
+      )}
     </header>
   );
 };
