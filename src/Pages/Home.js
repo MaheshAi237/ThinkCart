@@ -1,13 +1,33 @@
-import React from "react";
-import { IconBrain, IconMapPin, IconShieldCheck } from "@tabler/icons-react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import {
+  IconBrain,
+  IconMapPin,
+  IconShieldCheck,
+  IconBriefcase,
+  IconMilk,
+  IconChartLine,
+  IconCamera,
+} from "@tabler/icons-react";
 // EmailSignup is hidden for now until it's wired to a real backend — see
 // src/components/EmailSignup.js. Re-add <EmailSignup /> here once it's live.
 
 const PRODUCTS = [
   {
+    key: "trackandthaw",
+    name: "Track&Thaw",
+    accent: "#F472B6",
+    Icon: IconCamera,
+    badge: "Private beta",
+    oneLiner: "The nutrition coach that lives in your chat — Telegram & WhatsApp",
+    features: ["Snap a photo, get instant calories", "No new app to install", "Daily check-ins & progress tracking"],
+    href: "/track-and-thaw",
+  },
+  {
     key: "jobs",
     name: "ThinkCart Jobs",
     accent: "#64B5F6",
+    Icon: IconBriefcase,
     badge: "Launching 2026",
     oneLiner: "AI-powered job portal for India + diaspora + global",
     features: ["Resume built for the JD", "Private career vault", "AI interview coach"],
@@ -16,6 +36,7 @@ const PRODUCTS = [
     key: "milkroute",
     name: "MilkRoute",
     accent: "#2EC4B6",
+    Icon: IconMilk,
     badge: "Launching 2026",
     oneLiner: "Hyperlocal milk delivery for India — WhatsApp-first",
     features: ["Vendor app for stock management", "2km delivery radius", "WhatsApp notifications"],
@@ -24,6 +45,7 @@ const PRODUCTS = [
     key: "stocksense",
     name: "StockSense India",
     accent: "#7B7FE8",
+    Icon: IconChartLine,
     badge: "Launching 2029",
     oneLiner: "AI stock signal platform for NSE + BSE — signal first, launch when proven",
     features: ["BUY/SELL/HOLD signals", "Technical + fundamental analysis", "Accuracy dashboard"],
@@ -49,6 +71,13 @@ const WHY_US = [
 ];
 
 const Home = () => {
+  useEffect(() => {
+    if (window.location.hash) {
+      const el = document.querySelector(window.location.hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <>
       <section className="hero-section" id="hero">
@@ -83,6 +112,9 @@ const Home = () => {
                 key={product.key}
                 style={{ "--accent": product.accent }}
               >
+                <div className="product-icon">
+                  <product.Icon size={22} stroke={1.75} />
+                </div>
                 <span className="product-badge">{product.badge}</span>
                 <h3 className="product-name">{product.name}</h3>
                 <p className="product-desc">{product.oneLiner}</p>
@@ -94,6 +126,11 @@ const Home = () => {
                     </li>
                   ))}
                 </ul>
+                {product.href && (
+                  <Link to={product.href} className="product-link">
+                    Learn more →
+                  </Link>
+                )}
               </div>
             ))}
           </div>

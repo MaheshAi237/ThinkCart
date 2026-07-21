@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 
 const NavBar = () => {
@@ -7,18 +8,18 @@ const NavBar = () => {
   return (
     <header className="navbar">
       <div className="nav-inner">
-        <a href="#top" className="logo-lockup">
+        <Link to="/" className="logo-lockup">
           <Logo variant="dark" size={32} />
-        </a>
+        </Link>
 
         <nav className="nav-links">
-          <a href="#products" className="nav-link">
+          <a href="/#products" className="nav-link">
             Products
           </a>
-          <a href="#about" className="nav-link">
+          <a href="/#about" className="nav-link">
             About
           </a>
-          <a href="#contact" className="nav-link">
+          <a href="/#contact" className="nav-link">
             Contact
           </a>
           {/* "Join waitlist" CTA hidden until the signup form is wired to a
@@ -39,13 +40,13 @@ const NavBar = () => {
 
       {open && (
         <div className="nav-mobile-menu">
-          <a href="#products" className="nav-link" onClick={() => setOpen(false)}>
+          <a href="/#products" className="nav-link" onClick={() => setOpen(false)}>
             Products
           </a>
-          <a href="#about" className="nav-link" onClick={() => setOpen(false)}>
+          <a href="/#about" className="nav-link" onClick={() => setOpen(false)}>
             About
           </a>
-          <a href="#contact" className="nav-link" onClick={() => setOpen(false)}>
+          <a href="/#contact" className="nav-link" onClick={() => setOpen(false)}>
             Contact
           </a>
         </div>
