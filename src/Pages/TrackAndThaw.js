@@ -9,6 +9,9 @@ import {
   IconMoon,
   IconLock,
 } from "@tabler/icons-react";
+import BackgroundBlobs from "../components/BackgroundBlobs";
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import { handleTiltMove, handleTiltLeave } from "../utils/tilt";
 
 const FEATURES = [
   {
@@ -48,9 +51,12 @@ const TrackAndThaw = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  useRevealOnScroll();
+
   return (
     <>
       <section className="project-hero" style={{ "--accent": "#F472B6" }}>
+        <BackgroundBlobs colors={["#F472B6", "#FB7185", "#C084FC"]} />
         <div className="section-inner">
           <Link to="/" className="back-link">
             <IconArrowLeft size={16} stroke={2} />
@@ -71,7 +77,7 @@ const TrackAndThaw = () => {
       </section>
 
       <section className="project-body">
-        <div className="section-inner project-copy">
+        <div className="section-inner project-copy reveal">
           <p className="founder-body">
             Most nutrition apps ask you to do the work: search a food database, log
             every ingredient, remember to check in. Track&amp;Thaw flips that. Send a
@@ -96,7 +102,13 @@ const TrackAndThaw = () => {
 
           <div className="why-grid project-feature-grid">
             {FEATURES.map(({ Icon, heading, body }) => (
-              <div className="why-col" key={heading} style={{ "--accent": "#F472B6" }}>
+              <div
+                className="why-col product-card reveal"
+                key={heading}
+                style={{ "--accent": "#F472B6" }}
+                onMouseMove={handleTiltMove}
+                onMouseLeave={handleTiltLeave}
+              >
                 <div className="why-icon project-feature-icon">
                   <Icon size={22} stroke={1.75} />
                 </div>
@@ -109,7 +121,7 @@ const TrackAndThaw = () => {
       </section>
 
       <section className="founder-section">
-        <div className="founder-inner">
+        <div className="founder-inner reveal">
           <span className="section-label">GET INVOLVED</span>
           <h2 className="founder-heading">Interested in the private beta?</h2>
           <p className="founder-body">

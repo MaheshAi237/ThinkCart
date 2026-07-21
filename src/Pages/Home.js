@@ -9,6 +9,9 @@ import {
   IconChartLine,
   IconCamera,
 } from "@tabler/icons-react";
+import BackgroundBlobs from "../components/BackgroundBlobs";
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import { handleTiltMove, handleTiltLeave } from "../utils/tilt";
 // EmailSignup is hidden for now until it's wired to a real backend — see
 // src/components/EmailSignup.js. Re-add <EmailSignup /> here once it's live.
 
@@ -78,9 +81,12 @@ const Home = () => {
     }
   }, []);
 
+  useRevealOnScroll();
+
   return (
     <>
       <section className="hero-section" id="hero">
+        <BackgroundBlobs colors={["#64B5F6", "#2EC4B6", "#7B7FE8"]} />
         <div className="hero-inner">
           <p className="eyebrow fade-in">COMING SOON · 2026</p>
 
@@ -108,9 +114,11 @@ const Home = () => {
           <div className="product-grid">
             {PRODUCTS.map((product) => (
               <div
-                className="product-card"
+                className="product-card reveal"
                 key={product.key}
                 style={{ "--accent": product.accent }}
+                onMouseMove={handleTiltMove}
+                onMouseLeave={handleTiltLeave}
               >
                 <div className="product-icon">
                   <product.Icon size={22} stroke={1.75} />
@@ -144,7 +152,7 @@ const Home = () => {
 
           <div className="why-grid">
             {WHY_US.map(({ Icon, heading, body }) => (
-              <div className="why-col" key={heading}>
+              <div className="why-col reveal" key={heading}>
                 <div className="why-icon">
                   <Icon size={22} stroke={1.75} />
                 </div>
@@ -157,7 +165,7 @@ const Home = () => {
       </section>
 
       <section className="founder-section" id="about">
-        <div className="founder-inner">
+        <div className="founder-inner reveal">
           <span className="section-label">WHO WE ARE</span>
           <h2 className="founder-heading">
             Started with an idea. Building with intention.

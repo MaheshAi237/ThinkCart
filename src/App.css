@@ -221,6 +221,7 @@ a {
 
 .hero-inner {
   position: relative;
+  z-index: 1;
   max-width: 720px;
 }
 
@@ -379,11 +380,11 @@ a {
   padding: 24px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease;
+  transform-style: preserve-3d;
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
 }
 
@@ -665,6 +666,87 @@ a {
   color: #fff;
 }
 
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* FLOATING BACKGROUND BLOBS (scoped to a relative/overflow-hidden parent) */
+
+.bg-blobs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.22;
+  animation: floatBlob 20s ease-in-out infinite;
+}
+
+.bg-blob-1 {
+  width: 420px;
+  height: 420px;
+  top: -140px;
+  left: -100px;
+  animation-duration: 18s;
+}
+
+.bg-blob-2 {
+  width: 380px;
+  height: 380px;
+  top: 160px;
+  right: -140px;
+  animation-duration: 22s;
+  animation-delay: -6s;
+}
+
+.bg-blob-3 {
+  width: 320px;
+  height: 320px;
+  bottom: -160px;
+  left: 32%;
+  animation-duration: 24s;
+  animation-delay: -3s;
+}
+
+@keyframes floatBlob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(24px, -26px) scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-blob {
+    animation: none;
+  }
+}
+
 /* PROJECT PAGE (e.g. Track & Thaw) */
 
 .back-link {
@@ -687,10 +769,14 @@ a {
   background: var(--midnight);
   padding: 56px 24px 64px;
   text-align: left;
+  position: relative;
+  overflow: hidden;
 }
 
 .project-hero .section-inner {
   max-width: 720px;
+  position: relative;
+  z-index: 1;
 }
 
 .project-badge {
