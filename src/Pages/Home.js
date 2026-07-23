@@ -25,6 +25,7 @@ const PRODUCTS = [
     oneLiner: "The nutrition coach that lives in your chat — Telegram & WhatsApp",
     features: ["Snap a photo, get instant calories", "No new app to install", "Daily check-ins & progress tracking"],
     href: "/track-and-thaw",
+    bentoTile: "product-tile-featured",
   },
   {
     key: "jobs",
@@ -34,6 +35,7 @@ const PRODUCTS = [
     badge: "Launching 2026",
     oneLiner: "AI-powered job portal for India + diaspora + global",
     features: ["Resume built for the JD", "Private career vault", "AI interview coach"],
+    bentoTile: "product-tile-wide",
   },
   {
     key: "milkroute",
@@ -43,6 +45,7 @@ const PRODUCTS = [
     badge: "Launching 2026",
     oneLiner: "Hyperlocal milk delivery for India — WhatsApp-first",
     features: ["Vendor app for stock management", "2km delivery radius", "WhatsApp notifications"],
+    bentoTile: "product-tile-small",
   },
   {
     key: "stocksense",
@@ -52,6 +55,7 @@ const PRODUCTS = [
     badge: "Launching 2029",
     oneLiner: "AI stock signal platform for NSE + BSE — signal first, launch when proven",
     features: ["BUY/SELL/HOLD signals", "Technical + fundamental analysis", "Accuracy dashboard"],
+    bentoTile: "product-tile-small",
   },
 ];
 
@@ -104,6 +108,24 @@ const Home = () => {
             ↓ See what we're building
           </a>
         </div>
+
+        <div className="hero-visual fade-in fade-in-delay-2">
+          <div className="hero-bento-preview">
+            <p className="hero-bento-label">Building four AI-first products</p>
+            <div className="hero-bento-grid">
+              {PRODUCTS.map((product) => (
+                <div
+                  className="bento-mini"
+                  key={product.key}
+                  style={{ "--accent": product.accent }}
+                  title={product.name}
+                >
+                  <product.Icon size={22} stroke={1.75} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="products-section" id="products">
@@ -114,7 +136,9 @@ const Home = () => {
           <div className="product-grid">
             {PRODUCTS.map((product) => (
               <div
-                className="product-card reveal"
+                className={`product-card reveal ${product.bentoTile} ${
+                  product.key === "trackandthaw" ? "featured" : ""
+                }`}
                 key={product.key}
                 style={{ "--accent": product.accent }}
                 onMouseMove={handleTiltMove}
@@ -151,8 +175,13 @@ const Home = () => {
           <h2 className="section-title">We build what others overlook.</h2>
 
           <div className="why-grid">
-            {WHY_US.map(({ Icon, heading, body }) => (
-              <div className="why-col reveal" key={heading}>
+            {WHY_US.map(({ Icon, heading, body }, index) => (
+              <div
+                className={`why-col why-tile reveal ${
+                  index === 0 ? "why-tile-featured" : index === 2 ? "why-tile-wide" : ""
+                }`}
+                key={heading}
+              >
                 <div className="why-icon">
                   <Icon size={22} stroke={1.75} />
                 </div>
@@ -165,7 +194,7 @@ const Home = () => {
       </section>
 
       <section className="founder-section" id="about">
-        <div className="founder-inner reveal">
+        <div className="founder-inner founder-spotlight reveal">
           <span className="section-label">WHO WE ARE</span>
           <h2 className="founder-heading">
             Started with an idea. Building with intention.
